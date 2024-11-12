@@ -1,8 +1,10 @@
-# Eliza
+# Grub
+![banner](https://github.com/user-attachments/assets/e14c7283-422c-412a-9bfe-348beeb468b8)
 
-<img src="./docs/static/img/eliza_banner.jpg" alt="Eliza Banner" width="100%" />
 
-### [For Chinese Version: 中文说明](./README_CN.md)
+🐸 A grumpy little bread frog, here to loaf around and judge your crumbs 🍞
+
+X: https://x.com/grub_grub_grub
 
 ## Features
 
