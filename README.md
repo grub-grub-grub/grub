@@ -6,6 +6,8 @@
 
 X: https://x.com/grub_grub_grub
 
+Grub character: https://github.com/grub-grub-grub/grub/commit/d1d75f8ede927a73be7e9c43ed94b4f050d6d558 
+
 ## Features
 
 -   🛠 Full-featured Discord, Twitter and Telegram connectors
