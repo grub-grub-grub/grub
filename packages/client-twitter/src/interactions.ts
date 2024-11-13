@@ -350,7 +350,7 @@ export class TwitterInteractionClient extends ClientBase {
                 }
                 const debugFileName = `tweets/tweet_generation_${tweet.id}.txt`;
                 fs.writeFileSync(debugFileName, responseInfo);
-                await wait();
+                await wait(45 * 60 * 1000, 60 * 60 * 1000);
             } catch (error) {
                 console.error(`Error sending response tweet: ${error}`);
             }
