@@ -25,17 +25,27 @@ Write a single sentence post that is {{adjective}} about {{topic}} (without ment
 Your response should not contain any questions. Brief, concise statements only. No emojis. Use \\n\\n (double spaces) between statements.`;
 
 export class TwitterPostClient extends ClientBase {
+    private isPumping: boolean = false; // Flag to indicate if we are in the pump phase
+
     onReady() {
         const generateNewTweetLoop = () => {
             this.generateNewTweet();
-            setTimeout(
-                generateNewTweetLoop,
-                (Math.floor(Math.random() * (20 - 2 + 1)) + 2) * 60 * 1000
-            ); // Random interval between 4-8 hours
+            const interval = this.isPumping
+                ? (Math.floor(Math.random() * (2 - 1 + 1)) + 1) * 60 * 60 * 1000 // Random interval between 1-2 hours
+                : (Math.floor(Math.random() * (8 - 4 + 1)) + 4) * 60 * 60 * 1000; // Random interval between 4-8 hours
+            setTimeout(generateNewTweetLoop, interval);
         };
-        // setTimeout(() => {
         generateNewTweetLoop();
-        // }, 5 * 60 * 1000); // Wait 5 minutes before starting the loop
+    }
+
+    // Method to start the pump phase
+    startPump() {
+        this.isPumping = true;
+    }
+
+    // Method to end the pump phase
+    endPump() {
+        this.isPumping = false;
     }
 
     constructor(runtime: IAgentRuntime) {
