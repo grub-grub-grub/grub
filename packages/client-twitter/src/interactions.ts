@@ -75,8 +75,8 @@ export class TwitterInteractionClient extends ClientBase {
             this.handleTwitterInteractions();
             setTimeout(
                 handleTwitterInteractionsLoop,
-                (Math.floor(Math.random() * (5 - 2 + 1)) + 2) * 60 * 1000
-            ); // Random interval between 2-5 minutes
+                (Math.random() * (2 - 1) + 1) * 60 * 60 * 1000
+            ); // Random interval between 1 and 2 hours.
         };
         handleTwitterInteractionsLoop();
     }
@@ -350,7 +350,7 @@ export class TwitterInteractionClient extends ClientBase {
                 }
                 const debugFileName = `tweets/tweet_generation_${tweet.id}.txt`;
                 fs.writeFileSync(debugFileName, responseInfo);
-                await wait(45 * 60 * 1000, 60 * 60 * 1000); // Wait between 45 minutes and 1 hour
+                await wait();
             } catch (error) {
                 console.error(`Error sending response tweet: ${error}`);
             }
